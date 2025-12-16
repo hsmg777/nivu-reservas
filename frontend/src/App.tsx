@@ -5,9 +5,8 @@ import PublicLayout from "./components/public/PublicLayout";
 import HomePage from "./pages/public/HomePage";
 import NosotrosPage from "./pages/public/NosotrosPage";
 import EventosPage from "./pages/public/EventosPage";
-import ConciertosPage from "./pages/public/ConciertosPage";
-import PoliticasPage from "./pages/public/PoliticasPage";
 import EventoPublicoPage from "./pages/public/EventoPublicoPage";
+import PricingPage from "./pages/public/PricingPage";
 
 import LoginPage from "./pages/admin/LoginPage";
 import AdminDashboardPage from "./pages/admin/AdminDashboardPage";
@@ -32,9 +31,8 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/nosotros" element={<NosotrosPage />} />
           <Route path="/eventos" element={<EventosPage />} />
-          <Route path="/conciertos" element={<ConciertosPage />} />
-          <Route path="/politicas" element={<PoliticasPage />} />
           <Route path="/evento/:publicCode" element={<EventoPublicoPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
         </Route>
 
         {/* AUTH */}

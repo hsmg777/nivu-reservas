@@ -49,7 +49,7 @@ export default function Slogan() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs sm:text-sm tracking-[0.35em] uppercase text-purple-700/70">
-            NuvemGate • Reservas con QR
+            NivumGate • Reservas con QR
           </p>
 
           <h2 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">

@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 const links = [
   { to: "/eventos", label: "Eventos" },
+  { to: "/pricing", label: "Precios" },
   { to: "/nosotros", label: "Nosotros" },
-  { to: "/conciertos", label: "Conciertos" },
-  { to: "/politicas", label: "Políticas" },
+  { to: "/admin/login", label: "Panel Administrativo" },
 ];
 
 export default function PublicNavbar() {
@@ -13,7 +13,7 @@ export default function PublicNavbar() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 1024) setOpen(false); // lg
+      if (window.innerWidth >= 1024) setOpen(false); 
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -65,10 +65,7 @@ export default function PublicNavbar() {
 
             <div className="flex flex-col leading-tight">
               <span className="text-white font-bold tracking-tight text-base lg:text-lg">
-                NuvemGate
-              </span>
-              <span className="text-white/70 font-medium tracking-tight text-sm lg:text-base">
-                by Nivusoftware
+                NivumGate
               </span>
             </div>
           </NavLink>
