@@ -130,27 +130,27 @@ class ReservationService:
 
         # IMPORTANTE: CID fijo que coincide con _send_email_with_qr (qr-image)
         html = f"""
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0b0b0b;padding:24px 0;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f6fb;padding:24px 0;">
           <tr>
             <td align="center">
-              <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:92%;background:#0f0f0f;border:1px solid #222;border-radius:18px;overflow:hidden;">
+              <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:92%;background:#ffffff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden;">
 
-                <!-- Top bar -->
+                <!-- Header -->
                 <tr>
-                  <td style="background:#ffd400;padding:18px 22px;">
+                  <td style="padding:20px 22px;border-bottom:1px solid #eef2f7;background:#ffffff;">
                     <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="left">
-                          <div style="font-size:12px;letter-spacing:3px;font-weight:800;color:#1a1a1a;text-transform:uppercase;">
-                            Bee Concert Club
+                          <div style="font-size:18px;font-weight:900;color:#0f172a;line-height:1;">
+                            NivuGate 
                           </div>
-                          <div style="font-size:20px;font-weight:900;color:#0b0b0b;line-height:1.2;margin-top:4px;">
-                            Tu invitación está lista!
+                          <div style="font-size:12px;color:#64748b;margin-top:4px;">
+                            Reservas con QR - by Nivusoftware
                           </div>
                         </td>
                         <td align="right">
-                          <div style="display:inline-block;background:#0b0b0b;color:#ffd400;font-weight:900;font-size:12px;padding:8px 12px;border-radius:999px;">
-                            QR · 1 SOLO USO
+                          <div style="display:inline-block;background:#f5f3ff;color:#7c3aed;font-weight:800;font-size:11px;padding:6px 10px;border-radius:999px;border:1px solid #e9d5ff;">
+                            QR - 1 SOLO USO
                           </div>
                         </td>
                       </tr>
@@ -160,88 +160,74 @@ class ReservationService:
 
                 <!-- Body -->
                 <tr>
-                  <td style="padding:22px 22px 10px 22px;color:#f5f5f5;">
-                    <p style="margin:0 0 10px 0;font-size:15px;line-height:1.6;color:#eaeaea;">
-                      Hola <b style="color:#ffffff;">{r.first_name} {r.last_name}</b>, tu reserva fue registrada.
+                  <td style="padding:22px 22px 10px 22px;color:#0f172a;">
+                    <p style="margin:0 0 10px 0;font-size:15px;line-height:1.6;color:#334155;">
+                      Hola <b style="color:#0f172a;">{r.first_name} {r.last_name}</b>, tu reserva fue registrada.
+                    </p>
+                    <p style="margin:0 0 10px 0;font-size:15px;line-height:1.6;color:#334155;">
+                      Este es un correo de prueba, al contratar tu plan, el correo será personalizado con los colores y textos de tu marca.
                     </p>
 
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background:#141414;border:1px solid #242424;border-radius:14px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
                       <tr>
                         <td style="padding:14px 14px;">
-                          <div style="font-size:12px;letter-spacing:2px;font-weight:800;color:#ffd400;text-transform:uppercase;">
+                          <div style="font-size:11px;letter-spacing:2px;font-weight:800;color:#7c3aed;text-transform:uppercase;">
                             Evento
                           </div>
-                          <div style="font-size:18px;font-weight:900;color:#ffffff;margin-top:4px;line-height:1.3;">
+                          <div style="font-size:18px;font-weight:900;color:#0f172a;margin-top:4px;line-height:1.3;">
                             {ev.name}
                           </div>
                         </td>
                       </tr>
                     </table>
 
-                    <p style="margin:16px 0 12px 0;font-size:14px;line-height:1.6;color:#dcdcdc;">
+                    <p style="margin:16px 0 12px 0;font-size:14px;line-height:1.6;color:#475569;">
                       Presenta este QR en la entrada:
                     </p>
 
                     <!-- QR box -->
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0b0b0b;border:1px solid #242424;border-radius:14px;">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;">
                       <tr>
                         <td align="center" style="padding:16px;">
-                          <img src="cid:qr-image" alt="QR Bee Concert Club"
+                          <img src="cid:qr-image" alt="QR NivuGate"
                                width="260" height="260"
-                               style="display:block;width:260px;height:260px;border-radius:16px;border:1px solid #2b2b2b;background:#ffffff;padding:10px;" />
+                               style="display:block;width:260px;height:260px;border-radius:12px;border:1px solid #e2e8f0;background:#ffffff;padding:10px;" />
                         </td>
                       </tr>
                     </table>
 
-                    <p style="margin:12px 0 0 0;font-size:12px;color:#bdbdbd;line-height:1.5;">
+                    <p style="margin:12px 0 0 0;font-size:12px;color:#64748b;line-height:1.5;">
                       *El QR es de un solo uso. Una vez escaneado, queda marcado como utilizado.
                     </p>
 
-                    <!-- Rules -->
-                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;background:#141414;border:1px solid #242424;border-radius:14px;">
+                    <!-- Notes -->
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:16px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;">
                       <tr>
                         <td style="padding:14px 14px;">
-                          <div style="font-size:13px;font-weight:900;color:#ffd400;">
-                            ¡Recuerda!
+                          <div style="font-size:13px;font-weight:900;color:#0f172a;">
+                            Recordatorio
                           </div>
 
-                          <div style="margin-top:10px;font-size:13px;line-height:1.6;color:#e6e6e6;">
-                            <div style="margin:0 0 8px 0;">
-                              • Ingreso con documento <b>FÍSICO OBLIGATORIO</b> ⚠️:<br/>
-                              <span style="color:#cfcfcf;">Nacionales:</span> Cédula / Licencia de conducir.<br/>
-                              <span style="color:#cfcfcf;">Extranjeros:</span> Pasaporte.
-                            </div>
+                          <div style="margin-top:8px;font-size:13px;line-height:1.6;color:#475569;">
+                            - Presenta tu QR al ingreso.<br/>
+                            - Tu reserva no garantiza el ingreso si el evento esta a capacidad.<br/>
+                            - Cumple las politicas del organizador del evento.
+                          </div>
 
-                            <div style="margin:0 0 8px 0;">
-                              • Está prohibido el ingreso de menores de edad 🚫.
-                            </div>
-
-                            <div style="margin:10px 0 0 0;color:#cfcfcf;">
-                              Recuerda presentarlo al ingresar.<br/>
-                              <b style="color:#ffd400;">⚠️: Tu reserva no garantiza el ingreso!</b> Recuerda cumplir las politicas.
-                            </div>
-
-                            <div style="margin-top:10px;color:#eaeaea;">
-                              Gracias por confiar en nosotros.
-                            </div>
-
-                            <div style="margin-top:10px;color:#eaeaea;">
-                              Atentamente,<br/>
-                              <b>Equipo de Bee Concert Club 🐝</b>
-                            </div>
+                          <div style="margin-top:10px;color:#334155;">
+                            Gracias por confiar en NivuGate.
                           </div>
                         </td>
                       </tr>
                     </table>
-
                   </td>
                 </tr>
 
                 <!-- Footer -->
                 <tr>
                   <td style="padding:14px 22px 18px 22px;">
-                    <div style="border-top:1px solid #242424;padding-top:12px;color:#9a9a9a;font-size:11px;line-height:1.5;text-align:center;">
-                      Desarrollado por <b style="color:#cfcfcf;">Nivusoftware SAS.</b> · <span style="color:#cfcfcf;">@nivu.soft</span>
+                    <div style="border-top:1px solid #e2e8f0;padding-top:12px;color:#94a3b8;font-size:11px;line-height:1.5;text-align:center;">
+                      Desarrollado por <b style="color:#64748b;">Nivusoftware</b> - @nivu.soft
                     </div>
                   </td>
                 </tr>

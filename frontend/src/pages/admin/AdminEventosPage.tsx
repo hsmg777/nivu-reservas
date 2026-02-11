@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 import {
@@ -106,39 +106,38 @@ export default function AdminEventosPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#080414] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-white text-slate-900 font-['Poppins']">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b0620] via-[#080414] to-[#06020f]" />
-        <div className="absolute -top-40 left-[-140px] h-[34rem] w-[34rem] rounded-full bg-purple-500/18 blur-3xl" />
-        <div className="absolute -bottom-44 right-[-160px] h-[36rem] w-[36rem] rounded-full bg-fuchsia-500/14 blur-3xl" />
-        <div className="absolute top-14 right-24 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.10]">
-          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:96px_96px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />
+        <div className="absolute -top-32 left-[-60px] h-[30rem] w-[30rem] rounded-full bg-fuchsia-200/35 blur-3xl" />
+        <div className="absolute -bottom-40 right-[-80px] h-[28rem] w-[28rem] rounded-full bg-indigo-200/30 blur-3xl" />
+        <div className="absolute top-14 right-20 h-56 w-56 rounded-full bg-purple-200/30 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.12]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
       </div>
 
       <div className="relative">
         {/* Topbar */}
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#080414]/65 backdrop-blur-2xl">
+        <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-xl">
-                <LayoutDashboard className="h-5 w-5 text-white/85" />
+              <div className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-white">
+                <LayoutDashboard className="h-5 w-5 text-slate-700" />
               </div>
 
               <div className="flex items-center gap-3">
                 <img
                   src="/images/nuvem.png"
-                  alt="NuvemGate"
-                  className="h-9 w-9 object-contain drop-shadow-[0_12px_22px_rgba(0,0,0,0.55)]"
+                  alt="Nivugate"
+                  className="h-9 w-9 object-contain drop-shadow-[0_8px_16px_rgba(15,23,42,0.12)]"
                   draggable={false}
                 />
                 <div className="leading-tight">
-                  <p className="text-sm font-bold tracking-tight">Admin · Eventos</p>
-                  <p className="text-xs text-white/60">
-                    NuvemGate <span className="text-fuchsia-200">by Nivusoftware</span>
+                  <p className="text-sm font-bold tracking-tight text-slate-900">Admin · Eventos</p>
+                  <p className="text-xs text-slate-500">
+                    Nivugate <span className="text-fuchsia-600">by Nivusoftware</span>
                   </p>
                 </div>
               </div>
@@ -149,9 +148,9 @@ export default function AdminEventosPage() {
                 onClick={load}
                 className="
                   inline-flex items-center gap-2 rounded-xl
-                  border border-white/10 bg-white/5
-                  px-3 py-2 text-sm font-semibold text-white/85
-                  hover:bg-white/10 hover:text-white transition
+                  border border-slate-200 bg-white
+                  px-3 py-2 text-sm font-semibold text-slate-700
+                  hover:bg-slate-50 hover:text-slate-900 transition
                 "
                 title="Refrescar"
               >
@@ -165,7 +164,7 @@ export default function AdminEventosPage() {
                   inline-flex items-center gap-2 rounded-xl
                   bg-fuchsia-600 px-3 py-2 text-sm font-extrabold text-white
                   hover:bg-fuchsia-500 transition
-                  shadow-[0_18px_55px_rgba(0,0,0,0.45)]
+                  shadow-[0_16px_40px_rgba(236,72,153,0.35)]
                 "
               >
                 <CalendarPlus className="h-4 w-4" />
@@ -178,31 +177,31 @@ export default function AdminEventosPage() {
         <main className="mx-auto max-w-6xl px-6 py-10">
           <div className="flex items-end justify-between gap-4">
             <div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Eventos</h1>
-              <p className="mt-2 text-white/65">
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Eventos</h1>
+              <p className="mt-2 text-slate-600">
                 Listado de eventos creados en el sistema.
               </p>
             </div>
 
             <NavLink
               to="/admin"
-              className="text-sm font-semibold text-white/70 hover:text-white transition"
+              className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition"
             >
               ← Volver al panel
             </NavLink>
           </div>
 
-          <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.06] backdrop-blur-2xl shadow-[0_18px_55px_rgba(0,0,0,0.55)]">
-            <div className="border-b border-white/10 px-6 py-4 flex items-center justify-between">
-              <p className="font-extrabold">Listado</p>
-              <span className="text-xs text-white/55">
+          <div className="mt-8 rounded-3xl border border-slate-200/80 bg-white/90 shadow-[0_18px_55px_rgba(15,23,42,0.10)]">
+            <div className="border-b border-slate-200/80 px-6 py-4 flex items-center justify-between">
+              <p className="font-extrabold text-slate-900">Listado</p>
+              <span className="text-xs text-slate-500">
                 {loading ? "Cargando..." : `${items.length} evento(s)`}
               </span>
             </div>
 
             <div className="p-6">
               {items.length === 0 && !loading ? (
-                <div className="rounded-2xl border border-dashed border-white/15 bg-white/[0.03] p-8 text-center text-white/65">
+                <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-slate-600">
                   No hay eventos todavía. Crea el primero.
                 </div>
               ) : (
@@ -211,23 +210,23 @@ export default function AdminEventosPage() {
                     <div
                       key={ev.id}
                       className="
-                        rounded-2xl border border-white/10 bg-white/[0.05]
+                        rounded-2xl border border-slate-200/80 bg-white
                         p-5 flex flex-col gap-3
                         sm:flex-row sm:items-center sm:justify-between
-                        hover:bg-white/[0.07] transition
+                        hover:bg-slate-50 transition
                       "
                     >
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <p className="font-extrabold truncate">{ev.name}</p>
+                          <p className="font-extrabold truncate text-slate-900">{ev.name}</p>
                           <StatusBadge status={ev.status} />
                         </div>
 
-                        <p className="mt-1 text-sm text-white/65 line-clamp-2">
+                        <p className="mt-1 text-sm text-slate-600 line-clamp-2">
                           {ev.description ?? "—"}
                         </p>
 
-                        <div className="mt-2 text-xs text-white/55 flex flex-wrap gap-x-4 gap-y-1">
+                        <div className="mt-2 text-xs text-slate-500 flex flex-wrap gap-x-4 gap-y-1">
                           <span>Inicio: {formatDate(ev.start_at)}</span>
                           <span>Fin: {formatDate(ev.end_at)}</span>
                           <span className="font-mono">code: {ev.public_code}</span>
@@ -242,9 +241,9 @@ export default function AdminEventosPage() {
                           onClick={() => openEdit(ev)}
                           className="
                             inline-flex items-center gap-2 rounded-xl
-                            border border-white/10 bg-white/5
-                            px-3 py-2 text-sm font-semibold text-white/85
-                            hover:bg-white/10 hover:text-white transition
+                            border border-slate-200 bg-white
+                            px-3 py-2 text-sm font-semibold text-slate-700
+                            hover:bg-slate-50 hover:text-slate-900 transition
                           "
                         >
                           <Pencil className="h-4 w-4" />
@@ -255,9 +254,9 @@ export default function AdminEventosPage() {
                           onClick={() => onDelete(ev)}
                           className="
                             inline-flex items-center gap-2 rounded-xl
-                            border border-rose-400/25 bg-rose-500/10
-                            px-3 py-2 text-sm font-semibold text-rose-100
-                            hover:bg-rose-500/15 transition
+                            border border-rose-200 bg-rose-50
+                            px-3 py-2 text-sm font-semibold text-rose-700
+                            hover:bg-rose-100 transition
                           "
                         >
                           <Trash2 className="h-4 w-4" />
@@ -271,7 +270,7 @@ export default function AdminEventosPage() {
             </div>
           </div>
 
-          <div className="mt-10 text-xs text-white/45">© 2025 NuvemGate · Nivusoftware · Admin</div>
+          <div className="mt-10 text-xs text-slate-500">© 2025 Nivugate · Nivusoftware · Admin</div>
         </main>
 
         {open && (
@@ -292,10 +291,10 @@ export default function AdminEventosPage() {
 
 function StatusBadge({ status }: { status: EventDTO["status"] }) {
   const map: Record<string, string> = {
-    draft: "bg-white/5 text-white/75 border-white/10",
-    active: "bg-emerald-500/10 text-emerald-100 border-emerald-400/20",
-    ended: "bg-sky-500/10 text-sky-100 border-sky-400/20",
-    cancelled: "bg-rose-500/10 text-rose-100 border-rose-400/20",
+    draft: "bg-slate-100 text-slate-600 border-slate-200",
+    active: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    ended: "bg-sky-50 text-sky-700 border-sky-200",
+    cancelled: "bg-rose-50 text-rose-700 border-rose-200",
   };
 
   return (
@@ -336,7 +335,7 @@ function QrButton({ eventId }: { eventId: number }) {
         title: "QR del evento",
         html: `
           <div style="display:flex;justify-content:center;">
-            <div style="padding:14px;border-radius:18px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.05);">
+            <div style="padding:14px;border-radius:18px;border:1px solid rgba(226,232,240,0.9);background:#fff;">
               <img alt="QR" src="${url}" style="width:260px;height:260px;border-radius:14px;"/>
             </div>
           </div>
@@ -357,9 +356,9 @@ function QrButton({ eventId }: { eventId: number }) {
       disabled={busy}
       className="
         inline-flex items-center gap-2 rounded-xl
-        border border-white/10 bg-white/5
-        px-3 py-2 text-sm font-semibold text-white/85
-        hover:bg-white/10 hover:text-white transition
+        border border-slate-200 bg-white
+        px-3 py-2 text-sm font-semibold text-slate-700
+        hover:bg-slate-50 hover:text-slate-900 transition
         disabled:opacity-60
       "
       title="Ver QR"
@@ -401,24 +400,24 @@ function AccessQrButton({ eventId }: { eventId: number }) {
         title: "QR acceso ilimitado",
         html: `
           <div style="display:grid;gap:12px;justify-items:center;">
-            <div style="padding:14px;border-radius:18px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.05);">
+            <div style="padding:14px;border-radius:18px;border:1px solid rgba(226,232,240,0.9);background:#fff;">
               <img alt="QR" src="${url}" style="width:260px;height:260px;border-radius:14px;"/>
             </div>
 
-            <div style="width:100%;text-align:left;font-size:12px;color:rgba(255,255,255,0.75);">
-              <div><b style="color:#fff;">label:</b> ${access.label ?? "—"}</div>
+            <div style="width:100%;text-align:left;font-size:12px;color:#475569;">
+              <div><b style="color:#0f172a;">label:</b> ${access.label ?? "—"}</div>
               <div style="margin-top:4px;">
-                <b style="color:#fff;">code:</b>
+                <b style="color:#0f172a;">code:</b>
                 <span style="font-family:ui-monospace, SFMono-Regular, Menlo, monospace;">
                   ${access.access_code}
                 </span>
               </div>
 
-              <div style="margin-top:10px;"><b style="color:#fff;">url:</b></div>
-              <div style="word-break:break-all;color:#fff;opacity:0.92;">${accessUrlToCopy}</div>
+              <div style="margin-top:10px;"><b style="color:#0f172a;">url:</b></div>
+              <div style="word-break:break-all;color:#0f172a;opacity:0.92;">${accessUrlToCopy}</div>
 
               <button id="copy-access-url"
-                style="margin-top:12px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.06);color:#fff;font-weight:800;cursor:pointer;">
+                style="margin-top:12px;padding:10px 12px;border-radius:12px;border:1px solid #e2e8f0;background:#fff;color:#0f172a;font-weight:800;cursor:pointer;">
                 Copiar link
               </button>
             </div>
@@ -463,9 +462,9 @@ function AccessQrButton({ eventId }: { eventId: number }) {
       disabled={busy}
       className="
         inline-flex items-center gap-2 rounded-xl
-        border border-white/10 bg-white/5
-        px-3 py-2 text-sm font-semibold text-white/85
-        hover:bg-white/10 hover:text-white transition
+        border border-slate-200 bg-white
+        px-3 py-2 text-sm font-semibold text-slate-700
+        hover:bg-slate-50 hover:text-slate-900 transition
         disabled:opacity-60
       "
       title="QR ilimitado (acceso)"
@@ -531,15 +530,15 @@ function EventModal({
 
   return (
     <div className="fixed inset-0 z-50">
-      <div className="absolute inset-0 bg-black/55" onClick={onClose} />
+      <div className="absolute inset-0 bg-slate-900/40" onClick={onClose} />
 
       <div className="absolute inset-0 grid place-items-center p-4">
-        <div className="w-full max-w-2xl rounded-[1.6rem] border border-white/10 bg-[#0b0620]/95 backdrop-blur-2xl shadow-[0_18px_60px_rgba(0,0,0,0.70)]">
-          <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between">
-            <p className="font-extrabold text-white">{title}</p>
+        <div className="w-full max-w-2xl rounded-[1.6rem] border border-slate-200/80 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.20)]">
+          <div className="px-6 py-4 border-b border-slate-200/80 flex items-center justify-between">
+            <p className="font-extrabold text-slate-900">{title}</p>
             <button
               onClick={onClose}
-              className="rounded-xl border border-white/10 bg-white/5 px-3 py-1.5 text-sm font-semibold text-white/80 hover:bg-white/10 hover:text-white transition"
+              className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition"
             >
               Cerrar
             </button>
@@ -547,28 +546,28 @@ function EventModal({
 
           <div className="p-6 grid gap-4">
             <div>
-              <label className="text-sm font-bold text-white/85">Nombre</label>
+              <label className="text-sm font-bold text-slate-700">Nombre</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="
-                  mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                  px-3 py-2 text-white placeholder:text-white/35 outline-none
-                  focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10 transition
+                  mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                  px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none
+                  focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 transition
                 "
                 placeholder="Concierto..."
               />
             </div>
 
             <div>
-              <label className="text-sm font-bold text-white/85">Descripción</label>
+              <label className="text-sm font-bold text-slate-700">Descripción</label>
               <textarea
                 value={description ?? ""}
                 onChange={(e) => setDescription(e.target.value)}
                 className="
-                  mt-1 w-full min-h-[90px] rounded-xl border border-white/10 bg-black/30
-                  px-3 py-2 text-white placeholder:text-white/35 outline-none
-                  focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10 transition
+                  mt-1 w-full min-h-[90px] rounded-xl border border-slate-200/80 bg-white
+                  px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none
+                  focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 transition
                 "
                 placeholder="Detalles del evento..."
               />
@@ -576,29 +575,29 @@ function EventModal({
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="text-sm font-bold text-white/85">Fecha inicio</label>
+                <label className="text-sm font-bold text-slate-700">Fecha inicio</label>
                 <input
                   type="datetime-local"
                   value={startAt}
                   onChange={(e) => setStartAt(e.target.value)}
                   className="
-                    mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                    px-3 py-2 text-white outline-none
-                    focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10 transition
+                    mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                    px-3 py-2 text-slate-900 outline-none
+                    focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 transition
                   "
                 />
               </div>
 
               <div>
-                <label className="text-sm font-bold text-white/85">Fecha fin</label>
+                <label className="text-sm font-bold text-slate-700">Fecha fin</label>
                 <input
                   type="datetime-local"
                   value={endAt}
                   onChange={(e) => setEndAt(e.target.value)}
                   className="
-                    mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                    px-3 py-2 text-white outline-none
-                    focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10 transition
+                    mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                    px-3 py-2 text-slate-900 outline-none
+                    focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 transition
                   "
                 />
               </div>
@@ -606,14 +605,14 @@ function EventModal({
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="text-sm font-bold text-white/85">Estado</label>
+                <label className="text-sm font-bold text-slate-700">Estado</label>
                 <select
                   value={status}
                   onChange={(e) => setStatus(e.target.value as any)}
                   className="
-                    mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                    px-3 py-2 text-white outline-none
-                    focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10 transition
+                    mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                    px-3 py-2 text-slate-900 outline-none
+                    focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 transition
                   "
                 >
                   <option value="draft">draft</option>
@@ -623,21 +622,21 @@ function EventModal({
                 </select>
               </div>
 
-              <div className="text-xs text-white/55 flex items-end">
+              <div className="text-xs text-slate-500 flex items-end">
                 <p>
-                  El QR se genera desde el backend usando el <b className="text-white">public_code</b>.
+                  El QR se genera desde el backend usando el <b className="text-slate-700">public_code</b>.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="px-6 py-4 border-t border-white/10 flex items-center justify-end gap-2">
+          <div className="px-6 py-4 border-t border-slate-200/80 flex items-center justify-end gap-2">
             <button
               onClick={onClose}
               className="
-                rounded-xl border border-white/10 bg-white/5
-                px-4 py-2 text-sm font-semibold text-white/80
-                hover:bg-white/10 hover:text-white transition
+                rounded-xl border border-slate-200 bg-white
+                px-4 py-2 text-sm font-semibold text-slate-700
+                hover:bg-slate-50 hover:text-slate-900 transition
               "
             >
               Cancelar

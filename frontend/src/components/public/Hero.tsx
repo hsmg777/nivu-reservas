@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Video BG */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/nuvem.mp4"
+        src="/videos/nivugate.mp4"
         autoPlay
         muted
         loop
@@ -59,42 +59,60 @@ export default function Hero() {
           </div>
 
           {/* CTA */}
-          <button
-            onClick={() => navigate("/eventos")}
-            className="
-              group inline-flex items-center justify-center gap-3
-              rounded-2xl px-10 py-4
-              text-base sm:text-lg font-extrabold uppercase
-              tracking-[0.22em]
-              text-white
-              border border-purple-300/90
-              bg-white/12
-              backdrop-blur-xl backdrop-saturate-150
-              shadow-[0_18px_45px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.22)]
-              transition-all duration-200
-              hover:bg-white/18 hover:border-purple-200/55
-              hover:shadow-[0_24px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.28),0_0_30px_rgba(253,224,71,0.22)]
-              active:scale-[0.99]
-            "
-          >
-            <span>RESERVAR</span>
-
-            <span
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <button
+              onClick={() => navigate("/eventos")}
               className="
-                inline-flex h-9 w-9 items-center justify-center
-                rounded-xl
-                border border-white/18
+                group inline-flex items-center justify-center gap-3
+                rounded-2xl px-7 py-3
+                text-sm sm:text-base font-extrabold uppercase
+                tracking-[0.2em]
+                text-white
+                border border-purple-300/90
+                bg-white/12
+                backdrop-blur-xl backdrop-saturate-150
+                shadow-[0_14px_35px_rgba(0,0,0,0.32),inset_0_1px_0_rgba(255,255,255,0.22)]
+                transition-all duration-200
+                hover:bg-white/18 hover:border-purple-200/55
+                hover:shadow-[0_20px_50px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.28),0_0_24px_rgba(253,224,71,0.18)]
+                active:scale-[0.99]
+              "
+            >
+              <span>SIMULAR RESERVA</span>
+
+              <span
+                className="
+                  inline-flex h-8 w-8 items-center justify-center
+                  rounded-lg
+                  border border-white/18
+                  bg-white/10
+                  backdrop-blur-xl
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]
+                  transition-transform duration-200
+                  group-hover:translate-x-1
+                "
+                aria-hidden="true"
+              >
+                →
+              </span>
+            </button>
+
+            <button
+              onClick={() => navigate("/pricing")}
+              className="
+                inline-flex items-center justify-center
+                rounded-2xl px-6 py-3
+                text-sm sm:text-base font-bold
+                text-white
+                border border-white/25
                 bg-white/10
                 backdrop-blur-xl
-                shadow-[inset_0_1px_0_rgba(255,255,255,0.18)]
-                transition-transform duration-200
-                group-hover:translate-x-1
+                hover:bg-white/15 transition
               "
-              aria-hidden="true"
             >
-              →
-            </span>
-          </button>
+              Adquirir app
+            </button>
+          </div>
         </div>
 
       </div>

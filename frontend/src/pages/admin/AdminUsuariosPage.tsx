@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import Swal from "sweetalert2";
 import {
   Users,
@@ -192,39 +192,38 @@ export default function AdminUsuariosPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#080414] text-white">
+    <div className="relative min-h-screen overflow-hidden bg-white text-slate-900 font-['Poppins']">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0b0620] via-[#080414] to-[#06020f]" />
-        <div className="absolute -top-40 left-[-140px] h-[34rem] w-[34rem] rounded-full bg-purple-500/18 blur-3xl" />
-        <div className="absolute -bottom-44 right-[-160px] h-[36rem] w-[36rem] rounded-full bg-fuchsia-500/14 blur-3xl" />
-        <div className="absolute top-14 right-24 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.10]">
-          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(255,255,255,0.10)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.10)_1px,transparent_1px)] bg-[size:96px_96px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />
+        <div className="absolute -top-32 left-[-60px] h-[30rem] w-[30rem] rounded-full bg-fuchsia-200/35 blur-3xl" />
+        <div className="absolute -bottom-40 right-[-80px] h-[28rem] w-[28rem] rounded-full bg-indigo-200/30 blur-3xl" />
+        <div className="absolute top-14 right-20 h-56 w-56 rounded-full bg-purple-200/30 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.12]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/40" />
       </div>
 
       <div className="relative">
         {/* Topbar */}
-        <header className="sticky top-0 z-40 border-b border-white/10 bg-[#080414]/65 backdrop-blur-2xl">
+        <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur-2xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-2xl border border-white/10 bg-white/[0.06] backdrop-blur-xl">
-                <Users className="h-5 w-5 text-white/85" />
+              <div className="grid h-11 w-11 place-items-center rounded-2xl border border-slate-200 bg-white">
+                <Users className="h-5 w-5 text-slate-700" />
               </div>
 
               <div className="flex items-center gap-3">
                 <img
                   src="/images/nuvem.png"
-                  alt="NuvemGate"
-                  className="h-9 w-9 object-contain drop-shadow-[0_12px_22px_rgba(0,0,0,0.55)]"
+                  alt="Nivugate"
+                  className="h-9 w-9 object-contain drop-shadow-[0_8px_16px_rgba(15,23,42,0.12)]"
                   draggable={false}
                 />
                 <div className="leading-tight">
-                  <p className="text-sm font-extrabold tracking-tight">Admin · Usuarios</p>
-                  <p className="text-xs text-white/60">
-                    NuvemGate <span className="text-fuchsia-200">by Nivusoftware</span>
+                  <p className="text-sm font-extrabold tracking-tight text-slate-900">Admin · Usuarios</p>
+                  <p className="text-xs text-slate-500">
+                    Nivugate <span className="text-fuchsia-600">by Nivusoftware</span>
                   </p>
                 </div>
               </div>
@@ -236,9 +235,9 @@ export default function AdminUsuariosPage() {
                 disabled={loading}
                 className="
                   inline-flex items-center gap-2 rounded-xl
-                  border border-white/10 bg-white/5
-                  px-3 py-2 text-sm font-semibold text-white/85
-                  hover:bg-white/10 hover:text-white transition
+                  border border-slate-200 bg-white
+                  px-3 py-2 text-sm font-semibold text-slate-700
+                  hover:bg-slate-50 hover:text-slate-900 transition
                   disabled:opacity-60
                 "
                 title="Refrescar"
@@ -251,9 +250,8 @@ export default function AdminUsuariosPage() {
                 onClick={openCreate}
                 className="
                   inline-flex items-center gap-2 rounded-xl
-                  border border-fuchsia-300/25 bg-fuchsia-500/15
-                  px-3 py-2 text-sm font-extrabold text-white
-                  hover:bg-fuchsia-500/20 transition
+                  bg-fuchsia-600 px-3 py-2 text-sm font-extrabold text-white
+                  hover:bg-fuchsia-500 transition
                 "
               >
                 <UserPlus className="h-4 w-4" />
@@ -267,27 +265,27 @@ export default function AdminUsuariosPage() {
         <main className="mx-auto max-w-6xl px-6 py-10">
           <div className="flex items-end justify-between gap-4">
             <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Usuarios</h1>
-              <p className="mt-2 text-white/65">
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Usuarios</h1>
+              <p className="mt-2 text-slate-600">
                 Crea usuarios y asigna roles (admin / seguridad / user).
               </p>
             </div>
 
-            <NavLink to="/admin" className="text-sm font-semibold text-white/70 hover:text-white transition">
+            <NavLink to="/admin" className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition">
               ← Volver al panel
             </NavLink>
           </div>
 
           {/* Search */}
-          <div className="mt-6 rounded-[1.6rem] border border-white/10 bg-white/[0.06] backdrop-blur-2xl shadow-[0_18px_55px_rgba(0,0,0,0.55)] p-4">
+          <div className="mt-6 rounded-[1.6rem] border border-slate-200/80 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.10)] p-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-3">
-                <div className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5">
-                  <Search className="h-4 w-4 text-white/80" />
+                <div className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white">
+                  <Search className="h-4 w-4 text-slate-600" />
                 </div>
                 <div className="min-w-0">
-                  <p className="font-extrabold">Buscar</p>
-                  <p className="text-xs text-white/55">Nombre, correo o rol</p>
+                  <p className="font-extrabold text-slate-900">Buscar</p>
+                  <p className="text-xs text-slate-500">Nombre, correo o rol</p>
                 </div>
               </div>
 
@@ -297,28 +295,28 @@ export default function AdminUsuariosPage() {
                 placeholder="Ej: seguridad, admin@..."
                 className="
                   w-full sm:w-[380px]
-                  rounded-xl border border-white/10 bg-black/30
-                  px-3 py-2 text-sm text-white
-                  placeholder:text-white/35
+                  rounded-xl border border-slate-200/80 bg-white
+                  px-3 py-2 text-sm text-slate-900
+                  placeholder:text-slate-400
                   outline-none
-                  focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10
+                  focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
                 "
               />
             </div>
           </div>
 
           {/* List */}
-          <div className="mt-6 rounded-[1.6rem] border border-white/10 bg-white/[0.06] backdrop-blur-2xl shadow-[0_18px_55px_rgba(0,0,0,0.55)]">
-            <div className="border-b border-white/10 px-6 py-4 flex items-center justify-between">
-              <p className="font-extrabold">Listado</p>
-              <span className="text-xs text-white/50">
+          <div className="mt-6 rounded-[1.6rem] border border-slate-200/80 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.10)]">
+            <div className="border-b border-slate-200/80 px-6 py-4 flex items-center justify-between">
+              <p className="font-extrabold text-slate-900">Listado</p>
+              <span className="text-xs text-slate-500">
                 {loading ? "Cargando..." : `${filtered.length} usuario(s)`}
               </span>
             </div>
 
             <div className="p-6">
               {filtered.length === 0 ? (
-                <div className="rounded-2xl border border-dashed border-white/15 bg-black/20 p-8 text-center text-white/60">
+                <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-8 text-center text-slate-600">
                   {loading ? "Cargando..." : "No hay resultados."}
                 </div>
               ) : (
@@ -327,25 +325,25 @@ export default function AdminUsuariosPage() {
                     <div
                       key={u.id}
                       className="
-                        rounded-2xl border border-white/10 bg-black/20
+                        rounded-2xl border border-slate-200/80 bg-white
                         p-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between
-                        hover:bg-white/[0.04] transition
+                        hover:bg-slate-50 transition
                       "
                     >
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <p className="font-extrabold truncate text-white">{u.name}</p>
+                          <p className="font-extrabold truncate text-slate-900">{u.name}</p>
                           <RoleBadge role={u.role} />
                           {!u.is_active && (
-                            <span className="text-xs font-bold px-2 py-1 rounded-full border border-white/10 bg-white/5 text-white/70">
+                            <span className="text-xs font-bold px-2 py-1 rounded-full border border-slate-200 bg-slate-50 text-slate-600">
                               inactivo
                             </span>
                           )}
                         </div>
 
-                        <p className="mt-1 text-sm text-white/70 truncate">{u.email}</p>
+                        <p className="mt-1 text-sm text-slate-600 truncate">{u.email}</p>
 
-                        <div className="mt-2 text-xs text-white/50 flex flex-wrap gap-x-4 gap-y-1">
+                        <div className="mt-2 text-xs text-slate-500 flex flex-wrap gap-x-4 gap-y-1">
                           <span className="inline-flex items-center gap-1">
                             <ShieldCheck className="h-3.5 w-3.5" />
                             permisos por rol
@@ -362,13 +360,12 @@ export default function AdminUsuariosPage() {
                           onClick={() => openEdit(u)}
                           className="
                             inline-flex items-center gap-2 rounded-xl
-                            border border-white/10 bg-white/5
-                            px-3 py-2 text-sm font-semibold text-white/85
-                            hover:bg-white/10 hover:text-white transition
+                            border border-slate-200 bg-white
+                            px-3 py-2 text-sm font-semibold text-slate-700
+                            hover:bg-slate-50 hover:text-slate-900 transition
                           "
                           title="Editar (demo)"
                         >
-                          {/* icon opcional: no importamos Pencil para mantenerlo simple */}
                           Editar
                         </button>
 
@@ -376,9 +373,9 @@ export default function AdminUsuariosPage() {
                           onClick={() => onDelete(u)}
                           className="
                             inline-flex items-center gap-2 rounded-xl
-                            border border-rose-400/25 bg-rose-500/10
-                            px-3 py-2 text-sm font-semibold text-rose-100
-                            hover:bg-rose-500/15 transition
+                            border border-rose-200 bg-rose-50
+                            px-3 py-2 text-sm font-semibold text-rose-700
+                            hover:bg-rose-100 transition
                           "
                         >
                           <Trash2 className="h-4 w-4" />
@@ -392,7 +389,7 @@ export default function AdminUsuariosPage() {
             </div>
           </div>
 
-          <div className="mt-10 text-xs text-white/45">© 2025 NuvemGate · Nivusoftware · Admin</div>
+          <div className="mt-10 text-xs text-slate-500">© 2025 Nivugate · Nivusoftware · Admin</div>
         </main>
 
         {open && (
@@ -414,15 +411,15 @@ export default function AdminUsuariosPage() {
 function RoleBadge({ role }: { role: Role }) {
   const map: Record<Role, { cls: string; label: string }> = {
     admin: {
-      cls: "border-fuchsia-300/25 bg-fuchsia-500/12 text-fuchsia-100",
+      cls: "border-fuchsia-200 bg-fuchsia-50 text-fuchsia-700",
       label: "admin",
     },
     seguridad: {
-      cls: "border-amber-300/25 bg-amber-500/12 text-amber-100",
+      cls: "border-amber-200 bg-amber-50 text-amber-700",
       label: "seguridad",
     },
     user: {
-      cls: "border-sky-300/25 bg-sky-500/12 text-sky-100",
+      cls: "border-sky-200 bg-sky-50 text-sky-700",
       label: "user",
     },
   };
@@ -494,18 +491,18 @@ function UserModal({
 
   return (
     <div className="fixed inset-0 z-50">
-      <div className="absolute inset-0 bg-black/55" onClick={onClose} />
+      <div className="absolute inset-0 bg-slate-900/40" onClick={onClose} />
 
       <div className="absolute inset-0 grid place-items-center p-4">
-        <div className="w-full max-w-2xl overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0b0620] text-white shadow-[0_22px_70px_rgba(0,0,0,0.65)]">
-          <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between">
-            <p className="font-extrabold">{title}</p>
+        <div className="w-full max-w-2xl overflow-hidden rounded-[1.6rem] border border-slate-200/80 bg-white text-slate-900 shadow-[0_22px_70px_rgba(15,23,42,0.20)]">
+          <div className="px-6 py-4 border-b border-slate-200/80 flex items-center justify-between">
+            <p className="font-extrabold text-slate-900">{title}</p>
             <button
               onClick={onClose}
               className="
-                rounded-xl border border-white/10 bg-white/5
-                px-3 py-1.5 text-sm font-semibold text-white/85
-                hover:bg-white/10 hover:text-white transition
+                rounded-xl border border-slate-200 bg-white
+                px-3 py-1.5 text-sm font-semibold text-slate-700
+                hover:bg-slate-50 hover:text-slate-900 transition
               "
             >
               Cerrar
@@ -514,28 +511,28 @@ function UserModal({
 
           <div className="p-6 grid gap-4">
             <div>
-              <label className="text-sm font-bold text-white/85">Nombre</label>
+              <label className="text-sm font-bold text-slate-700">Nombre</label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="
-                  mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                  px-3 py-2 text-white placeholder:text-white/35 outline-none
-                  focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10
+                  mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                  px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none
+                  focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
                 "
                 placeholder="Nombre..."
               />
             </div>
 
             <div>
-              <label className="text-sm font-bold text-white/85">Correo</label>
+              <label className="text-sm font-bold text-slate-700">Correo</label>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="
-                  mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                  px-3 py-2 text-white placeholder:text-white/35 outline-none
-                  focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10
+                  mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                  px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none
+                  focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
                 "
                 placeholder="correo@..."
               />
@@ -543,15 +540,15 @@ function UserModal({
 
             {mode === "create" && (
               <div>
-                <label className="text-sm font-bold text-white/85">Contraseña</label>
+                <label className="text-sm font-bold text-slate-700">Contraseña</label>
                 <input
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   className="
-                    mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                    px-3 py-2 text-white placeholder:text-white/35 outline-none
-                    focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10
+                    mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                    px-3 py-2 text-slate-900 placeholder:text-slate-400 outline-none
+                    focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
                   "
                   placeholder="******"
                 />
@@ -560,14 +557,14 @@ function UserModal({
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="text-sm font-bold text-white/85">Rol</label>
+                <label className="text-sm font-bold text-slate-700">Rol</label>
                 <select
                   value={role}
                   onChange={(e) => setRole(e.target.value as Role)}
                   className="
-                    mt-1 w-full rounded-xl border border-white/10 bg-black/30
-                    px-3 py-2 text-white outline-none
-                    focus:border-fuchsia-300/40 focus:ring-2 focus:ring-fuchsia-300/10
+                    mt-1 w-full rounded-xl border border-slate-200/80 bg-white
+                    px-3 py-2 text-slate-900 outline-none
+                    focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
                   "
                 >
                   <option value="admin">admin</option>
@@ -577,7 +574,7 @@ function UserModal({
               </div>
 
               <div className="flex items-end gap-3">
-                <label className="inline-flex items-center gap-2 text-sm font-semibold text-white/80">
+                <label className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700">
                   <input
                     type="checkbox"
                     checked={isActive}
@@ -590,20 +587,20 @@ function UserModal({
             </div>
 
             {mode === "edit" && (
-              <div className="text-xs text-white/55">
+              <div className="text-xs text-slate-500">
                 Editar aún es <b>demo</b>. Si quieres, hacemos endpoint PUT{" "}
                 <span className="font-mono">/api/auth/users/:id</span> para actualizar real.
               </div>
             )}
           </div>
 
-          <div className="px-6 py-4 border-t border-white/10 flex items-center justify-end gap-2">
+          <div className="px-6 py-4 border-t border-slate-200/80 flex items-center justify-end gap-2">
             <button
               onClick={onClose}
               className="
-                rounded-xl border border-white/10 bg-white/5
-                px-4 py-2 text-sm font-semibold text-white/85
-                hover:bg-white/10 hover:text-white transition
+                rounded-xl border border-slate-200 bg-white
+                px-4 py-2 text-sm font-semibold text-slate-700
+                hover:bg-slate-50 hover:text-slate-900 transition
               "
             >
               Cancelar
@@ -613,9 +610,8 @@ function UserModal({
               onClick={submit}
               disabled={saving}
               className="
-                rounded-xl border border-fuchsia-300/25 bg-fuchsia-500/15
-                px-4 py-2 text-sm font-extrabold text-white
-                hover:bg-fuchsia-500/20 transition
+                rounded-xl bg-fuchsia-600 px-4 py-2 text-sm font-extrabold text-white
+                hover:bg-fuchsia-500 transition
                 disabled:opacity-60
               "
             >
