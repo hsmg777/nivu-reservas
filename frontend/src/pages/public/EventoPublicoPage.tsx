@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -42,14 +42,10 @@ export default function EventoPublicoPage() {
     if (!publicCode) return;
 
     try {
-      // 1) crear reserva
       const reservation = await ReservationsService.createPublic(publicCode, payload);
-
-      // 2) pedir QR (PNG)
       const blob = await ReservationsService.getQrBlob(reservation.id);
       const url = qrBlobToObjectUrl(blob);
 
-      // 3) mostrar QR
       await Swal.fire({
         title: "Reserva creada ✅",
         html: `
@@ -58,7 +54,7 @@ export default function EventoPublicoPage() {
           </p>
           <div style="display:flex;justify-content:center;">
             <img alt="QR" src="${url}"
-              style="width:260px;height:260px;border-radius:16px;border:1px solid #2a2a2a;background:#fff;padding:10px;" />
+              style="width:260px;height:260px;border-radius:16px;border:1px solid #e2e8f0;background:#fff;padding:10px;" />
           </div>
           <p style="margin:10px 0 0 0;font-size:12px;opacity:.7">
             Código: <span style="font-family:monospace;">${reservation.reservation_code}</span>
@@ -74,50 +70,56 @@ export default function EventoPublicoPage() {
   }
 
   return (
-    <section className="bg-black text-white py-6">
+    <section className="relative overflow-hidden bg-white text-slate-900 py-6 font-['Poppins']">
       {/* Background glow */}
-      <div className="pointer-events-none absolute -top-24 left-10 h-72 w-72 rounded-full bg-yellow-400/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-24 right-10 h-80 w-80 rounded-full bg-white/5 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />
+        <div className="absolute -top-32 left-[-60px] h-80 w-80 rounded-full bg-fuchsia-200/40 blur-3xl" />
+        <div className="absolute -bottom-40 right-[-80px] h-[26rem] w-[26rem] rounded-full bg-indigo-200/35 blur-3xl" />
+        <div className="absolute top-14 right-20 h-56 w-56 rounded-full bg-purple-200/35 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.12]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
+        </div>
+      </div>
 
       <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-12">
         {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
-            <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-xl">
-              <span className="text-xs font-extrabold tracking-[0.25em] text-white/75 uppercase">
+            <div className="mb-4 inline-flex items-center gap-3 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 backdrop-blur-2xl shadow-[0_14px_35px_rgba(15,23,42,0.08)]">
+              <span className="text-xs font-extrabold tracking-[0.25em] text-slate-500 uppercase">
                 Reserva
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
               {loading ? "Cargando..." : event?.name ?? "Evento"}
             </h1>
 
-            <p className="mt-4 text-white/70 text-base sm:text-lg leading-relaxed">
+            <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
               {loading
                 ? "Obteniendo datos del evento..."
                 : event?.description ??
                   "Escaneaste el QR correcto. Completa el formulario para continuar."}
             </p>
 
-            {/* Info simple debajo */}
-            <div className="mt-4 grid gap-1 text-sm text-white/60">
-              <p className="mt-2 text-xs text-white/45">
+            <div className="mt-4 grid gap-1 text-sm text-slate-500">
+              <p className="mt-2 text-xs text-slate-400">
                 Recuerda: la reserva no garantiza tu entrada al evento.
               </p>
             </div>
           </div>
 
           <NavLink
-            to="/"
+            to="/eventos"
             className="
               shrink-0 inline-flex items-center justify-center
               rounded-2xl px-5 py-3
-              border border-white/10
-              bg-white/5
-              backdrop-blur-xl
-              text-sm font-semibold text-white/80
-              hover:bg-white/10 hover:text-white
+              border border-slate-200/70
+              bg-white/80
+              backdrop-blur-2xl
+              text-sm font-semibold text-slate-700
+              hover:bg-white hover:text-slate-900
               transition
             "
           >
@@ -129,11 +131,11 @@ export default function EventoPublicoPage() {
         <div className="mt-10">
           <div className="mx-auto max-w-2xl">
             <Card>
-              <h2 className="text-sm font-extrabold tracking-[0.25em] text-white/80 uppercase">
+              <h2 className="text-sm font-extrabold tracking-[0.25em] text-slate-600 uppercase">
                 Completa tu reserva
               </h2>
 
-              <p className="mt-3 text-sm text-white/70 leading-relaxed">
+              <p className="mt-3 text-sm text-slate-600 leading-relaxed">
                 Completa tus datos para generar tu reserva y obtener tu QR.
               </p>
 
@@ -158,11 +160,11 @@ function Card({ children }: { children: React.ReactNode }) {
     <div
       className="
         rounded-3xl
-        border border-white/10
-        bg-white/5
+        border border-slate-200/70
+        bg-white/85
         p-6
-        backdrop-blur-xl
-        shadow-[0_18px_55px_rgba(0,0,0,0.45)]
+        backdrop-blur-2xl
+        shadow-[0_18px_55px_rgba(15,23,42,0.12)]
       "
     >
       {children}

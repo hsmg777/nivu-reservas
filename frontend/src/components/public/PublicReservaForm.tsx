@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import type { ReservationCreatePayload } from "../../types/reservation";
 
 export default function PublicReservaForm({
@@ -39,7 +39,6 @@ export default function PublicReservaForm({
       setEmail("");
       setPhone("");
       setInstagram("");
-      
     } finally {
       setSubmitting(false);
     }
@@ -52,7 +51,7 @@ export default function PublicReservaForm({
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
           disabled={disabled || submitting}
-          className="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/20 disabled:opacity-60"
+          className="mt-1 w-full rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 disabled:opacity-60"
           placeholder="Tu nombre"
           required
         />
@@ -63,7 +62,7 @@ export default function PublicReservaForm({
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
           disabled={disabled || submitting}
-          className="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/20 disabled:opacity-60"
+          className="mt-1 w-full rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 disabled:opacity-60"
           placeholder="Tu apellido"
           required
         />
@@ -74,7 +73,7 @@ export default function PublicReservaForm({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           disabled={disabled || submitting}
-          className="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/20 disabled:opacity-60"
+          className="mt-1 w-full rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 disabled:opacity-60"
           placeholder="tucorreo@gmail.com"
           required
         />
@@ -85,7 +84,7 @@ export default function PublicReservaForm({
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           disabled={disabled || submitting}
-          className="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/20 disabled:opacity-60"
+          className="mt-1 w-full rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 disabled:opacity-60"
           placeholder="0999999999"
           required
         />
@@ -96,7 +95,7 @@ export default function PublicReservaForm({
           value={instagram}
           onChange={(e) => setInstagram(e.target.value)}
           disabled={disabled || submitting}
-          className="mt-1 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/20 disabled:opacity-60"
+          className="mt-1 w-full rounded-2xl border border-slate-200/80 bg-white px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50 disabled:opacity-60"
           placeholder="@tu_usuario"
           required
         />
@@ -105,7 +104,7 @@ export default function PublicReservaForm({
       <button
         type="submit"
         disabled={disabled || submitting}
-        className="group mt-2 inline-flex items-center justify-center rounded-2xl px-6 py-3 border border-yellow-300/40 bg-white/10 backdrop-blur-xl text-sm sm:text-base font-extrabold tracking-wide hover:bg-white/15 hover:border-yellow-300/60 transition disabled:opacity-60"
+        className="group mt-2 inline-flex items-center justify-center rounded-2xl px-6 py-3 border border-fuchsia-200 bg-white text-sm sm:text-base font-extrabold tracking-wide text-slate-900 shadow-[0_12px_30px_rgba(15,23,42,0.12)] hover:bg-fuchsia-50 hover:border-fuchsia-300 transition disabled:opacity-60"
       >
         {submitting ? "Reservando..." : "Reservar"}
         <span className="ml-2 inline-block transition-transform group-hover:translate-x-0.5">
@@ -113,7 +112,7 @@ export default function PublicReservaForm({
         </span>
       </button>
 
-      <p className="text-xs text-white/50">
+      <p className="text-xs text-slate-500">
         Te llegará un correo con tu QR (y también lo verás aquí).
       </p>
     </form>
@@ -123,7 +122,7 @@ export default function PublicReservaForm({
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <label className="text-sm font-extrabold text-white">{label}</label>
+      <label className="text-sm font-extrabold text-slate-700">{label}</label>
       {children}
     </div>
   );

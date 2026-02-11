@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getDashboardPathByRole, useAuth } from "../../context/AuthContext";
-import { Eye, EyeOff } from "lucide-react";
-
+import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -15,10 +14,9 @@ export default function LoginPage() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
 
-
-  useMemo(() => {
+  useEffect(() => {
     if (user?.role) navigate(getDashboardPathByRole(user.role), { replace: true });
-  }, [user?.role]);
+  }, [user?.role, navigate]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,153 +43,178 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
-    {/* Glows */}
-    <div className="pointer-events-none fixed -top-28 left-10 h-80 w-80 rounded-full bg-yellow-400/10 blur-3xl" />
-    <div className="pointer-events-none fixed top-28 right-10 h-96 w-96 rounded-full bg-white/5 blur-3xl" />
+    <div className="relative min-h-screen overflow-hidden bg-white text-slate-900 font-['Poppins']">
+      {/* Light background aligned with public pages */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />
+        <div className="absolute -top-32 left-[-60px] h-80 w-80 rounded-full bg-fuchsia-200/40 blur-3xl" />
+        <div className="absolute -bottom-40 right-[-80px] h-[26rem] w-[26rem] rounded-full bg-indigo-200/35 blur-3xl" />
+        <div className="absolute top-14 right-20 h-56 w-56 rounded-full bg-purple-200/35 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.12]">
+          <div className="h-full w-full bg-[linear-gradient(to_right,rgba(15,23,42,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.06)_1px,transparent_1px)] bg-[size:96px_96px]" />
+        </div>
+      </div>
 
-    <div className="relative mx-auto flex min-h-screen max-w-2xl items-center px-6 py-10">
-        {/* UNA SOLA COLUMNA */}
+      <div className="relative mx-auto flex min-h-screen max-w-2xl items-center px-6 py-10">
         <div className="w-full space-y-8">
-        {/* Info (arriba) */}
-        <div>
-            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-xl">
-            <span className="text-xs font-extrabold tracking-[0.25em] text-white/70 uppercase">
+          {/* Header */}
+          <div>
+            <div className="inline-flex items-center gap-3 rounded-full border border-slate-200/70 bg-white/80 px-4 py-2 backdrop-blur-2xl shadow-[0_12px_32px_rgba(15,23,42,0.08)]">
+              <span className="text-xs font-extrabold tracking-[0.25em] text-slate-500 uppercase">
                 Acceso administrativo
-            </span>
+              </span>
             </div>
 
             <div className="mt-6 flex items-center gap-4">
-            <img
-                src="/images/logoBEE.png"
-                alt="Bee Concert Club"
-                className="h-14 w-14 object-contain drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+              <img
+                src="/images/nuvem.png"
+                alt="NivuGate"
+                className="h-14 w-14 object-contain drop-shadow-[0_12px_22px_rgba(15,23,42,0.12)]"
                 draggable={false}
-            />
-            <div className="leading-tight">
-                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Bee Concert Club
+              />
+              <div className="leading-tight">
+                <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+                  NivuGate
                 </h1>
-                <p className="mt-1 text-white/70">Panel de administración</p>
+                <p className="mt-1 text-slate-600">
+                  Panel de administración ·{" "}
+                  <span className="text-fuchsia-600 font-semibold">by Nivusoftware</span>
+                </p>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
 
-        {/* Login card (abajo) */}
-        <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 sm:p-8 backdrop-blur-xl shadow-[0_18px_55px_rgba(0,0,0,0.55)]">
-            <h2 className="text-2xl font-extrabold tracking-tight">Iniciar sesión</h2>
-            <p className="mt-2 text-sm text-white/70">
-            Ingresa tus credenciales para continuar.
+          {/* Card */}
+          <div className="rounded-[2rem] border border-slate-200/70 bg-white/90 p-6 sm:p-8 backdrop-blur-2xl shadow-[0_18px_55px_rgba(15,23,42,0.10)]">
+            <h2 className="text-2xl font-extrabold tracking-tight text-slate-900">Iniciar sesión</h2>
+            <p className="mt-2 text-sm text-slate-600">
+              Ingresa tus credenciales para continuar.
             </p>
 
             {errorMsg && (
-            <div className="mt-5 rounded-2xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+              <div className="mt-5 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700">
                 {errorMsg}
-            </div>
+              </div>
             )}
 
             <form onSubmit={onSubmit} className="mt-6 space-y-4">
-            <div>
-                <label className="mb-2 block text-sm font-semibold text-white/80">
-                Correo
+              {/* Email */}
+              <div>
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Correo
                 </label>
-                <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                autoComplete="email"
-                placeholder="admin@beeconcertclub.com"
-                className="
-                    w-full rounded-2xl border border-white/10
-                    bg-black/30 px-4 py-3
-                    text-white placeholder:text-white/35
-                    outline-none
-                    focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/10
-                    transition
-                "
-                />
-            </div>
+                <div className="relative">
+                  <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                    <Mail className="h-4 w-4" />
+                  </span>
+                  <input
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="admin@nivugate.com"
+                    className="
+                      w-full rounded-2xl border border-slate-200/80
+                      bg-white px-11 py-3
+                      text-slate-900 placeholder:text-slate-400
+                      outline-none
+                      focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
+                      transition
+                    "
+                  />
+                </div>
+              </div>
 
-            <div>
-                <label className="mb-2 block text-sm font-semibold text-white/80">
-                    Contraseña
+              {/* Password */}
+              <div>
+                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                  Contraseña
                 </label>
 
                 <div className="relative">
-                    <input
+                  <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                    <Lock className="h-4 w-4" />
+                  </span>
+
+                  <input
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
                     placeholder="••••••••"
                     className="
-                        w-full rounded-2xl border border-white/10
-                        bg-black/30 px-4 py-3 pr-12
-                        text-white placeholder:text-white/35
-                        outline-none
-                        focus:border-yellow-300/40 focus:ring-2 focus:ring-yellow-300/10
-                        transition
+                      w-full rounded-2xl border border-slate-200/80
+                      bg-white px-11 py-3 pr-12
+                      text-slate-900 placeholder:text-slate-400
+                      outline-none
+                      focus:border-fuchsia-300/60 focus:ring-2 focus:ring-fuchsia-200/50
+                      transition
                     "
-                    />
+                  />
 
-                    <button
+                  <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
                     aria-label={showPassword ? "Ocultar contraseña" : "Ver contraseña"}
                     className="
-                        absolute right-2 top-1/2 -translate-y-1/2
-                        inline-flex h-10 w-10 items-center justify-center
-                        rounded-xl border border-white/10
-                        bg-white/5 text-white/70
-                        hover:bg-white/10 hover:text-white
-                        focus:outline-none focus:ring-2 focus:ring-yellow-300/15
-                        transition
+                      absolute right-2 top-1/2 -translate-y-1/2
+                      inline-flex h-10 w-10 items-center justify-center
+                      rounded-xl border border-slate-200/70
+                      bg-white text-slate-500
+                      hover:bg-slate-50 hover:text-slate-700
+                      focus:outline-none focus:ring-2 focus:ring-fuchsia-200/50
+                      transition
                     "
-                    >
-                    {showPassword ? (
-                        <EyeOff className="h-5 w-5" />
-                    ) : (
-                        <Eye className="h-5 w-5" />
-                    )}
-                    </button>
+                  >
+                    {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
+                  </button>
                 </div>
-            </div>
+              </div>
 
-
-
-            <button
+              {/* Submit */}
+              <button
                 type="submit"
                 disabled={loading}
                 className="
-                group w-full inline-flex items-center justify-center
-                rounded-2xl px-5 py-3
-                border border-yellow-300/35
-                bg-white/10 backdrop-blur-xl
-                font-extrabold tracking-wide
-                hover:bg-white/15 hover:border-yellow-300/55
-                active:scale-[0.99]
-                transition
-                disabled:opacity-60 disabled:cursor-not-allowed
+                  group w-full inline-flex items-center justify-center
+                  rounded-2xl px-5 py-3
+                  bg-slate-900 text-white
+                  font-extrabold tracking-wide
+                  hover:bg-slate-800
+                  active:scale-[0.99]
+                  transition
+                  disabled:opacity-60 disabled:cursor-not-allowed
                 "
-            >
+              >
                 {loading ? "Ingresando..." : "Entrar"}
                 <span className="ml-2 inline-block transition-transform group-hover:translate-x-0.5">
-                →
+                  →
                 </span>
-            </button>
+              </button>
 
-            <div className="pt-2 text-center text-xs text-white/45">
-                © 2025 Bee Concert Club
-            </div>
+              <div className="pt-2 text-center text-xs text-slate-500">
+                © 2025 NivuGate · Nivusoftware
+              </div>
             </form>
 
-            <div className="mt-4 text-center text-xs text-white/45">
-            ¿Problemas para acceder? Contacta al administrador del sistema.
+            <div className="mt-5 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-600">
+              <p className="font-extrabold text-slate-700">
+                CREDENCIALES PARA PROBAR EL SCANEO DE QR
+              </p>
+              <p className="mt-2">
+                correo: <span className="font-semibold text-slate-700">seguridad@nivusoftware.com</span>
+              </p>
+              <p>
+                password: <span className="font-semibold text-slate-700">nivu2025</span>
+              </p>
             </div>
-        </div>
-        </div>
-    </div>
-    </div>
 
+            <div className="mt-4 text-center text-xs text-slate-500">
+              ¿Problemas para acceder? Contacta al administrador del sistema.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

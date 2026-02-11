@@ -8,7 +8,7 @@ from app.services.auth_service import AuthService
 
 
 ADMIN_EMAIL = "admin@nivusoftware.com"
-ADMIN_PASSWORD = "adminBEE2025"
+ADMIN_PASSWORD = "nivusoft2025"
 
 
 @click.command("seed-admin")

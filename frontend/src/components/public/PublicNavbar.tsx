@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 
 const links = [
   { to: "/eventos", label: "Eventos" },
+  { to: "/pricing", label: "Precios" },
   { to: "/nosotros", label: "Nosotros" },
-  { to: "/conciertos", label: "Conciertos" },
-  { to: "/politicas", label: "Políticas" },
+  { to: "/admin/login", label: "Panel Administrativo" },
 ];
 
 export default function PublicNavbar() {
@@ -13,7 +13,7 @@ export default function PublicNavbar() {
 
   useEffect(() => {
     const onResize = () => {
-      if (window.innerWidth >= 1024) setOpen(false); // lg
+      if (window.innerWidth >= 1024) setOpen(false); 
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -52,7 +52,7 @@ export default function PublicNavbar() {
             {/* Logo image (sin borde, más grande) */}
             <img
               src="/images/nuvem.png"
-              alt="NuvemGate"
+              alt="NivuGate"
               className="
                 h-20 w-20 sm:h-14 sm:w-14
                 lg:h-16 lg:w-16
@@ -64,10 +64,10 @@ export default function PublicNavbar() {
             />
 
             <div className="flex flex-col leading-tight">
-              <span className="text-white font-bold tracking-tight text-base lg:text-lg">
-                NuvemGate
+              <span className="text-slate-800 font-bold tracking-tight text-base lg:text-lg">
+                NivuGate
               </span>
-              <span className="text-white/70 font-medium tracking-tight text-sm lg:text-base">
+              <span className="text-xs font-medium tracking-wide text-slate-500">
                 by Nivusoftware
               </span>
             </div>
@@ -82,7 +82,7 @@ export default function PublicNavbar() {
                 className={({ isActive }) =>
                   [
                     "px-4 py-2.5 rounded-xl font-semibold transition",
-                    "text-white/90 hover:text-white",
+                    "text-slate-800 hover:text-purple-700",
                     "hover:bg-white/10 active:scale-[0.99]",
                     "text-[15px]",
                     isActive ? "bg-white/15 border border-white/15" : "",
@@ -136,9 +136,9 @@ export default function PublicNavbar() {
                 className={({ isActive }) =>
                   [
                     "px-3 py-3 rounded-xl text-sm font-semibold transition",
-                    "text-white/90 hover:text-white",
-                    "bg-white/5 border border-white/10 hover:bg-white/10",
-                    isActive ? "bg-white/15 border-white/15" : "",
+                    "text-slate-700 hover:text-slate-900",
+                    "bg-white/70 border border-slate-200 hover:bg-white",
+                    isActive ? "bg-white border-slate-300" : "",
                   ].join(" ")
                 }
               >

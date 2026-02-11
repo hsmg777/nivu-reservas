@@ -1,35 +1,35 @@
-import { QrCode, Clock3, ShieldCheck, BarChart3, Users, Ticket } from "lucide-react";
+﻿import { QrCode, Clock3, ShieldCheck, BarChart3, Users, Ticket } from "lucide-react";
 
 const BENEFITS = [
   {
     icon: QrCode,
-    title: "Ingreso con QR en segundos",
-    desc: "Check-in rápido y sin caos: menos filas, más rotación y mejor experiencia.",
+    title: "QR en segundos",
+    desc: "Entrada rapida y sin filas.",
   },
   {
     icon: Ticket,
-    title: "Reservas y cupos bajo control",
-    desc: "Evita sobreventa, define aforo, horarios y reglas por evento o por sede.",
+    title: "Cupos claros",
+    desc: "Aforo, horarios y reglas por evento.",
   },
   {
     icon: ShieldCheck,
-    title: "Antifraude y trazabilidad",
-    desc: "Códigos únicos, validación al escanear y registro de entradas por persona.",
+    title: "Seguridad",
+    desc: "Codigos unicos y registro por persona.",
   },
   {
     icon: Clock3,
-    title: "Menos trabajo manual",
-    desc: "Automatiza confirmaciones, listas y validación en puerta con un solo flujo.",
+    title: "Menos tareas",
+    desc: "Menos Excel, papeles y procesos manuales.",
   },
   {
     icon: BarChart3,
-    title: "Datos para vender más",
-    desc: "Mide conversiones, asistencias, picos de ingreso y performance por evento.",
+    title: "Ventas medibles",
+    desc: "Conversiones y picos en un tablero.",
   },
   {
     icon: Users,
-    title: "Base de clientes lista",
-    desc: "Captura contactos (con permiso) para promos, eventos futuros y fidelización.",
+    title: "Proceso organizado",
+    desc: "Todo en una misma app.",
   },
 ];
 
@@ -49,20 +49,19 @@ export default function Slogan() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-4xl text-center">
           <p className="text-xs sm:text-sm tracking-[0.35em] uppercase text-purple-700/70">
-            NuvemGate • Reservas con QR
+            NivuGate - Reservas con QR
           </p>
 
           <h2 className="mt-5 text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
-            Menos filas,{" "}
+            La fila no vende,{" "}
             <span className="bg-gradient-to-r from-purple-700 via-fuchsia-600 to-indigo-600 bg-clip-text text-transparent">
-              más flujo y más ventas
+               La experiencia sí
             </span>
             .
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm sm:text-base text-slate-600">
-            Centraliza reservas, controla aforo y valida accesos con QR. Ideal para
-            discotecas, conciertos, eventos privados y empresas con atención por turnos.
+            Reservas y acceso con QR en un solo lugar. Ideal para eventos, fiestas, negocios.
           </p>
 
           {/* Accent line */}
@@ -105,11 +104,6 @@ export default function Slogan() {
                     <p className="mt-1 text-sm text-slate-600">{b.desc}</p>
                   </div>
                 </div>
-
-                <div className="mt-4 h-px w-full bg-gradient-to-r from-transparent via-purple-200/70 to-transparent" />
-                <p className="mt-3 text-xs text-purple-700/70">
-                  Enfocado en velocidad, control y experiencia.
-                </p>
               </div>
             );
           })}
