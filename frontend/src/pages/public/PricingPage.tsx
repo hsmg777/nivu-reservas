@@ -1,18 +1,17 @@
-﻿import { NavLink } from "react-router-dom";
-import {
+﻿import {
   Check,
   Sparkles,
   ShieldCheck,
   BarChart3,
   Headphones,
   Globe,
-  QrCode,
   Mail,
   WifiOff,
   CreditCard,
   Building2,
   CalendarDays,
 } from "lucide-react";
+import Seo from "../../components/seo/Seo";
 
 type Plan = {
   name: string;
@@ -226,6 +225,28 @@ function PlanCard({ plan }: { plan: Plan }) {
 export default function PricingPage() {
   return (
     <main className="relative w-full py-16 min-h-screen overflow-hidden bg-white text-slate-900 font-['Poppins']">
+      <Seo
+        title="Precios de Reservas con QR"
+        description="Conoce los planes de NivuGate para reservas con QR: mensual o por evento. Incluye hosting, web personalizada y flujo completo de check-in."
+        path="/pricing"
+        keywords={[
+          "precio app de reservas",
+          "planes reservas con qr",
+          "software de reservas precio",
+          "sistema qr para eventos costos",
+        ]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: "Planes NivuGate",
+          provider: {
+            "@type": "Organization",
+            name: "Nivusoftware",
+          },
+          areaServed: "Latam",
+          serviceType: "Sistema de reservas con QR",
+        }}
+      />
       {/* Light background aligned with footer */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />

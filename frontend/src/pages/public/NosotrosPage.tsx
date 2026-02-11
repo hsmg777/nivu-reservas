@@ -11,10 +11,35 @@ import {
   Music,
   Utensils,
 } from "lucide-react";
+import Seo from "../../components/seo/Seo";
 
 export default function NosotrosPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "Nosotros | NivuGate",
+    description:
+      "Conoce NivuGate, plataforma de reservas con QR para eventos y negocios con control de acceso y reportería.",
+    publisher: {
+      "@type": "Organization",
+      name: "Nivusoftware",
+    },
+  };
+
   return (
     <section className="bg-white text-slate-900 font-['Poppins'] py-10">
+      <Seo
+        title="Nosotros"
+        description="Conoce NivuGate by Nivusoftware: solución profesional de reservas con QR, check-in ágil, control de acceso y personalización para tu marca."
+        path="/nosotros"
+        keywords={[
+          "quienes somos nivugate",
+          "software de reservas qr",
+          "plataforma de reservas para discotecas",
+          "sistema de control de acceso para eventos",
+        ]}
+        structuredData={structuredData}
+      />
       <div className="mx-auto max-w-6xl px-6 pt-28 pb-14">
         {/* Hero */}
         <div className="max-w-3xl">

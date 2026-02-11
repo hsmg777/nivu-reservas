@@ -9,6 +9,7 @@ import PublicReservaForm from "../../components/public/PublicReservaForm";
 import type { ReservationCreatePayload } from "../../types/reservation";
 import { ReservationsService } from "../../services/reservations.service";
 import { qrBlobToObjectUrl, revokeObjectUrl } from "../../utils/qr";
+import Seo from "../../components/seo/Seo";
 
 export default function EventoPublicoPage() {
   const { publicCode } = useParams<{ publicCode: string }>();
@@ -69,8 +70,33 @@ export default function EventoPublicoPage() {
     }
   }
 
+  const eventTitle = event?.name ? `Reserva para ${event.name}` : "Reserva de Evento con QR";
+  const eventDescription = event?.description
+    ? `${event.description} Completa tu reserva y recibe tu codigo QR para check-in.`
+    : "Completa tu reserva de evento y recibe tu codigo QR para validar el ingreso rapido y seguro.";
+  const eventPath = publicCode ? `/evento/${publicCode}` : "/evento";
+
   return (
     <section className="relative overflow-hidden bg-white text-slate-900 py-6 font-['Poppins']">
+      <Seo
+        title={eventTitle}
+        description={eventDescription}
+        path={eventPath}
+        keywords={[
+          "reserva evento qr",
+          "entrada con qr",
+          "registro de asistentes",
+          "check in digital",
+        ]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "Event",
+          name: event?.name ?? "Evento NivuGate",
+          description: eventDescription,
+          eventStatus: "https://schema.org/EventScheduled",
+          eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        }}
+      />
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-100" />

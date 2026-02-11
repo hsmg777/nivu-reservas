@@ -1,10 +1,36 @@
 import Hero from "../../components/public/Hero";
 import Slogan from "../../components/public/Slogan";
-
+import Seo from "../../components/seo/Seo";
 
 export default function HomePage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "NivuGate",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description:
+      "Software de reservas con QR para eventos, discotecas y locales. Check-in rápido, control de acceso y métricas.",
+    brand: {
+      "@type": "Brand",
+      name: "NivuGate",
+    },
+  };
+
   return (
     <div className="text-white">
+      <Seo
+        title="Reservas con QR para Eventos y Locales"
+        description="NivuGate es una app web de reservas con QR para eventos y negocios. Reduce filas, mejora el check-in y controla accesos en segundos."
+        path="/"
+        keywords={[
+          "app de reservas con qr",
+          "reservas para eventos",
+          "check in qr",
+          "control de acceso con qr",
+        ]}
+        structuredData={structuredData}
+      />
       <Hero />
       <Slogan />
       <section className="bg-white text-slate-900">

@@ -2,6 +2,7 @@
 import { CalendarDays, Instagram } from "lucide-react";
 import { EventsService } from "../../services/events.service";
 import type { EventDTO } from "../../types/event";
+import Seo from "../../components/seo/Seo";
 
 export default function EventosPage() {
   const [events, setEvents] = useState<EventDTO[]>([]);
@@ -48,6 +49,24 @@ export default function EventosPage() {
 
   return (
     <main className="relative w-full py-10 min-h-screen overflow-hidden bg-[#f9f7ff] text-slate-900 font-['Poppins']">
+      <Seo
+        title="Eventos con Reserva QR"
+        description="Explora eventos activos y simula el flujo completo de reserva con QR. Prueba el check-in y la experiencia de acceso de NivuGate."
+        path="/eventos"
+        keywords={[
+          "eventos con reserva qr",
+          "reserva de entradas con qr",
+          "check in para eventos",
+          "simular reserva evento",
+        ]}
+        structuredData={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Eventos | NivuGate",
+          description:
+            "Catalogo de eventos publicos para probar reservas con QR y flujo de check-in digital.",
+        }}
+      />
       {/* Light inverted background */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-[#ffffff] via-[#f7f5ff] to-[#eef2ff]" />
